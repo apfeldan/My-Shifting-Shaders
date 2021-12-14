@@ -12,7 +12,7 @@ function init() {
     gl = new THREE.WebGLRenderer({antialias: true},{ alpha: true });
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(window.innerWidth, window.innerHeight);
-	gl.setClearColor( 0x000000, 0 );
+	gl.setClearColor( 0xffffff, 0 );
     gl.outputEncoding = THREE.sRGBEncoding;
     gl.xr.enabled = true;
     document.body.appendChild(gl.domElement);
@@ -33,7 +33,7 @@ function init() {
 
     // create the scene
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(true);
+    scene.background = new THREE.Color();
 
     // add fog
     const fog = new THREE.Fog("gray", 1, 90);
