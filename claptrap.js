@@ -12,7 +12,7 @@ function init() {
     gl = new THREE.WebGLRenderer({ alpha: true});
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(window.innerWidth, window.innerHeight);
-	gl.setClearColor( 0x000000, 0 );
+	gl.setClearColor( 0xffffff, 0 );
     gl.outputEncoding = THREE.sRGBEncoding;
     gl.xr.enabled = true;
     document.body.appendChild(gl.domElement);
