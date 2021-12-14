@@ -28,11 +28,11 @@ function init() {
         nearPlane,
         farPlane
     );
-    camera.position.set(0, 8, 30);
+    camera.position.set(0, 8, 60);
 
     // create the scene
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0.3, 0.5, 0.8);
+    scene.background = new THREE.Color(0.3, 0.5, 0.8, 0.0);
 
     // add fog
     const fog = new THREE.Fog("gray", 1, 90);
