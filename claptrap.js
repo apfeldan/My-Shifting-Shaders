@@ -9,9 +9,10 @@ animate();
 
 function init() {
     // create context
-    gl = new THREE.WebGLRenderer({antialias: true});
+    gl = new THREE.WebGLRenderer({antialias: true},{ alpha: true });
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(window.innerWidth, window.innerHeight);
+	gl.setClearColor( 0x000000, 0 );
     gl.outputEncoding = THREE.sRGBEncoding;
     gl.xr.enabled = true;
     document.body.appendChild(gl.domElement);
@@ -32,7 +33,7 @@ function init() {
 
     // create the scene
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0.3, 0.5, 0.8, 0.0);
+    scene.background = null;
 
     // add fog
     const fog = new THREE.Fog("gray", 1, 90);
