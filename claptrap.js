@@ -9,6 +9,7 @@ let findTarget;
 let hitTestSource = null;
 let hitTestSourceRequested = false;
 let controller;
+let direction;
 
 init();
 animate();
@@ -209,7 +210,7 @@ function animate() {
 let kmh = 0.05; //set pace
 var borderLeft = -5.0; //set borderLeft
 var borderRight = 5.0; //set borderRight
-let direction;
+
 let delta;
 var clock = new THREE.Clock();
 let shift = new THREE.Vector3();
