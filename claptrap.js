@@ -1,6 +1,7 @@
 import * as THREE from "./build/three.module.js";
 import { GLTFLoader } from "./GLTFLoader.js";
 import { ARButton } from "./ARButton.js";
+import { OrbitControls } from "./OrbitControls.js";
 
 let gTire, gArm, gClaptrapModel, renderer, light, camera, scene;
 
@@ -16,6 +17,8 @@ let direction = new THREE.Vector3();
 let delta;
 var clock = new THREE.Clock();
 let shift = new THREE.Vector3();
+var speed = 50;
+var plasmaBalls = [];
 
 init();
 animate();
@@ -201,6 +204,18 @@ function onSelect() {
   }
 } //end function onSelect
 
+window.addEventListener("mousedown", onMouseDown);
+
+function onMouseDown() {
+  let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
+    color: "aqua"
+  }));
+  plasmaBall.position.copy(emitter.getWorldPosition()); // start position - the tip of the weapon
+  plasmaBall.quaternion.copy(camera.quaternion); // apply camera's quaternion
+  scene.add(plasmaBall);
+  plasmaBalls.push(plasmaBall);
+}
+
 //Function to generate random direction vector for claptrap movement
 //not implemented yet, because animation code for the movement does crash the app
 function setRandomPosition() {
@@ -214,7 +229,11 @@ function animate() {
 
 // DRAW
 function draw(time, frame) {
-  time *= 0.001; //convert time to seconds
+  // time *= 0.001; //convert time to seconds
+  delta = clock.getDelta();
+  plasmaBalls.forEach(b => {
+    b.translateZ(-speed * delta); // move along the local z-axis
+  });
 
   //Resize Display Size and update Projection Matrix
   if (resizeDisplay) {
