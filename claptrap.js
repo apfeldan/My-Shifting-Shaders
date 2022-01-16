@@ -148,26 +148,26 @@ function init() {
     }
   );
 
-  //Init function addSound
-  //Implement sound
-  // create an AudioListener and add it to the camera
-  const listener = new THREE.AudioListener();
-  camera.add(listener);
+  // //Init function addSound
+  // //Implement sound
+  // // create an AudioListener and add it to the camera
+  // const listener = new THREE.AudioListener();
+  // camera.add(listener);
 
-  // create a global audio source
-  const sound = new THREE.Audio(listener);
+  // // create a global audio source
+  // const sound = new THREE.Audio(listener);
 
-  // create the PositionalAudio object (passing in the listener)
-  const positionalSound = new THREE.PositionalAudio(listener);
+  // // create the PositionalAudio object (passing in the listener)
+  // const positionalSound = new THREE.PositionalAudio(listener);
 
-  // load a sound and set it as the PositionalAudio object's buffer
-  const positionalAudioLoader = new THREE.AudioLoader();
-  positionalAudioLoader.load("sounds/ende.wav", function (buffer) {
-    positionalSound.setBuffer(buffer);
-    positionalSound.setRefDistance(1);
-    positionalSound.setLoop(true);
-    positionalSound.play(0);
-  });
+  // // load a sound and set it as the PositionalAudio object's buffer
+  // const positionalAudioLoader = new THREE.AudioLoader();
+  // positionalAudioLoader.load("sounds/ende.wav", function (buffer) {
+  //   positionalSound.setBuffer(buffer);
+  //   positionalSound.setRefDistance(1);
+  //   positionalSound.setLoop(true);
+  //   positionalSound.play(0);
+  // });
 
   //Add controller
   //Code from WebXR Examples Hit-Test.
@@ -204,7 +204,6 @@ function onSelect() {
     color: "aqua"
   }));
  plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
-  plasmaBall.quaternion.copy(findTarget.quaternion); // apply camera's quaternion
   scene.add(plasmaBall);
   plasmaBalls.push(plasmaBall);
     scene.add(gClaptrapModel);
