@@ -200,21 +200,18 @@ function onWindowResize() {
 function onSelect() {
   if (findTarget.visible) {
     gClaptrapModel.position.setFromMatrixPosition(findTarget.matrix);
-    scene.add(gClaptrapModel);
-  }
-} //end function onSelect
-
-window.addEventListener("mousedown", onMouseDown);
-
-function onMouseDown() {
-  let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
+	let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
     color: "aqua"
   }));
-  plasmaBall.position.copy(emitter.getWorldPosition()); // start position - the tip of the weapon
-  plasmaBall.quaternion.copy(camera.quaternion); // apply camera's quaternion
+ plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
+  plasmaBall.quaternion.copy(findTarget.quaternion); // apply camera's quaternion
   scene.add(plasmaBall);
   plasmaBalls.push(plasmaBall);
-}
+    scene.add(gClaptrapModel);
+  }
+} //end function onSelectz
+
+
 
 //Function to generate random direction vector for claptrap movement
 //not implemented yet, because animation code for the movement does crash the app
@@ -232,7 +229,7 @@ function draw(time, frame) {
   // time *= 0.001; //convert time to seconds
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
-    b.translateZ(-speed * delta); // move along the local z-axis
+    b.translateX(-speed * delta); // move along the local z-axis
   });
 
   //Resize Display Size and update Projection Matrix
