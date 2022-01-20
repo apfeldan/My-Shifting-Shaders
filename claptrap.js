@@ -204,7 +204,7 @@ function onSelect() {
     let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
       color: "aqua"
     }));
-    // plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
+    plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
     plasmaBall.lookAt(gClaptrapModel.position);
     plasmaBalls.push(plasmaBall.id);
     scene.add(plasmaBall);
@@ -234,8 +234,8 @@ function draw(time, frame) {
     // b.translateX(-speed * delta); // move along the local z-axis
     const obj = scene.getObjectById(b)
     if (obj) {
-vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
-obj.translate(vector * speed * delta)
+      vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
+      obj.translate(vector * speed * delta)
       // obj.translateY(speed * delta); // move along the local z-axis
     }
   });
