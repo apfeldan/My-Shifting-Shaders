@@ -233,7 +233,7 @@ function draw(time, frame) {
     // b.translateX(-speed * delta); // move along the local z-axis
     const obj = scene.getObjectById(b)
     if (obj) {
-      obj.translateX(-speed * delta); // move along the local z-axis
+      obj.translateY(speed * delta); // move along the local z-axis
     }
   });
 
