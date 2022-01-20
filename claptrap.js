@@ -204,7 +204,7 @@ function onSelect() {
     color: "aqua"
   }));
  plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
- 
+  plasmaBall.lookAt(gClaptrapModel);
   plasmaBalls.push(plasmaBall.id);
   scene.add(plasmaBall);
     scene.add(gClaptrapModel);
@@ -229,6 +229,7 @@ function draw(time, frame) {
   // time *= 0.001; //convert time to seconds
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
+    console.log(b)
     // b.translateX(-speed * delta); // move along the local z-axis
     const obj = scene.getObjectByProperty("id",b)
     if(obj){
