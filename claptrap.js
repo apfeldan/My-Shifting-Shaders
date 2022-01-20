@@ -23,6 +23,10 @@ var plasmaBalls = [];
 init();
 animate();
 
+camera.position.set(30,0,0);
+camera.up = new THREE.gClaptrapModel(0,0,1);
+camera.lookAt(new THREE.gClaptrapModel(0,0,0));
+
 function init() {
   // create container
   container = document.createElement("div");
