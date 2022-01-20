@@ -200,13 +200,13 @@ function onWindowResize() {
 function onSelect() {
   if (findTarget.visible) {
     gClaptrapModel.position.setFromMatrixPosition(findTarget.matrix);
-	let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
-    color: "aqua"
-  }));
- plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
-  plasmaBall.lookAt(gClaptrapModel);
-  plasmaBalls.push(plasmaBall.id);
-  scene.add(plasmaBall);
+    let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
+      color: "aqua"
+    }));
+    plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
+    plasmaBall.lookAt(gClaptrapModel);
+    plasmaBalls.push(plasmaBall.id);
+    scene.add(plasmaBall);
     scene.add(gClaptrapModel);
   }
 } //end function onSelectz
@@ -231,8 +231,8 @@ function draw(time, frame) {
   plasmaBalls.forEach(b => {
     console.log(b)
     // b.translateX(-speed * delta); // move along the local z-axis
-    const obj = scene.getObjectByProperty("id",b)
-    if(obj){
+    const obj = scene.getObjectById(b)
+    if (obj) {
       obj.translateX(-speed * delta); // move along the local z-axis
     }
   });
