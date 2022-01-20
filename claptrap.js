@@ -23,9 +23,6 @@ var plasmaBalls = [];
 init();
 animate();
 
-camera.position.set(30,0,0);
-camera.up = new THREE.gClaptrapModel(0,0,1);
-camera.lookAt(new THREE.gClaptrapModel(0,0,0));
 
 function init() {
   // create container
@@ -237,7 +234,9 @@ function draw(time, frame) {
     // b.translateX(-speed * delta); // move along the local z-axis
     const obj = scene.getObjectById(b)
     if (obj) {
-      obj.translateY(speed * delta); // move along the local z-axis
+vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
+obj.translate(vector * speed * delta)
+      // obj.translateY(speed * delta); // move along the local z-axis
     }
   });
 
