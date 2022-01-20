@@ -17,7 +17,7 @@ let direction = new THREE.Vector3();
 let delta;
 var clock = new THREE.Clock();
 let shift = new THREE.Vector3();
-var speed = 50;
+var speed = 10;
 var plasmaBalls = [];
 
 init();
