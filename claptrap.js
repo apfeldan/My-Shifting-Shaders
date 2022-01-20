@@ -205,7 +205,7 @@ function onSelect() {
   }));
  plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
   scene.add(plasmaBall);
-  plasmaBalls.push(plasmaBall);
+  plasmaBalls.push(plasmaBall.id);
     scene.add(gClaptrapModel);
   }
 } //end function onSelectz
@@ -228,7 +228,8 @@ function draw(time, frame) {
   // time *= 0.001; //convert time to seconds
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
-    b.translateX(-speed * delta); // move along the local z-axis
+    // b.translateX(-speed * delta); // move along the local z-axis
+    scene.get
   });
 
   //Resize Display Size and update Projection Matrix
