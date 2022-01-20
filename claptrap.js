@@ -204,7 +204,7 @@ function onSelect() {
     let plasmaBall = new THREE.Mesh(new THREE.SphereGeometry(0.5, 8, 4), new THREE.MeshBasicMaterial({
       color: "aqua"
     }));
-    plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
+    // plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
     plasmaBall.lookAt(gClaptrapModel.position);
     plasmaBalls.push(plasmaBall.id);
     scene.add(plasmaBall);
