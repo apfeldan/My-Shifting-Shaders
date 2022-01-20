@@ -204,8 +204,9 @@ function onSelect() {
     color: "aqua"
   }));
  plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
-  scene.add(plasmaBall);
+ 
   plasmaBalls.push(plasmaBall.id);
+  scene.add(plasmaBall);
     scene.add(gClaptrapModel);
   }
 } //end function onSelectz
@@ -229,7 +230,10 @@ function draw(time, frame) {
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
     // b.translateX(-speed * delta); // move along the local z-axis
-    scene.get
+    const obj = scene.getObjectByProperty("id",b)
+    if(obj){
+      obj.translateX(-speed * delta); // move along the local z-axis
+    }
   });
 
   //Resize Display Size and update Projection Matrix
