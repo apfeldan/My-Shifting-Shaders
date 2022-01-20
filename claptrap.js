@@ -204,7 +204,7 @@ function onSelect() {
       color: "aqua"
     }));
     plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
-    plasmaBall.lookAt(gClaptrapModel);
+    plasmaBall.lookAt(gClaptrapModel.position);
     plasmaBalls.push(plasmaBall.id);
     scene.add(plasmaBall);
     scene.add(gClaptrapModel);
