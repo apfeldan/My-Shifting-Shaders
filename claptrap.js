@@ -233,11 +233,11 @@ function draw(time, frame) {
     console.log(b)
     // b.translateX(-speed * delta); // move along the local z-axis
     const obj = scene.getObjectById(b)
-    if (obj) {
-      vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
-      obj.translate(vector * speed * delta)
-      // obj.translateY(speed * delta); // move along the local z-axis
-    }
+    // if (obj) {
+    //   vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
+    //   obj.translate(vector * speed * delta)
+    //   // obj.translateY(speed * delta); // move along the local z-axis
+    // }
   });
 
   //Resize Display Size and update Projection Matrix
