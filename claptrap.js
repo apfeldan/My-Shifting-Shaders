@@ -230,14 +230,7 @@ function draw(time, frame) {
   // time *= 0.001; //convert time to seconds
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
-    console.log(b)
-    // b.translateX(-speed * delta); // move along the local z-axis
-    const obj = scene.getObjectById(b)
-    // if (obj) {
-    //   vector = new THREE.Vector3(gClaptrapModel.position.x - obj.position.x,gClaptrapModel.position.y - obj.position.y,gClaptrapModel.position.z - obj.position.z)
-    //   obj.translate(vector * speed * delta)
-    //   // obj.translateY(speed * delta); // move along the local z-axis
-    // }
+    b.translateX(-speed * delta);
   });
 
   //Resize Display Size and update Projection Matrix
