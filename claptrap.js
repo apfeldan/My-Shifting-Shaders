@@ -230,7 +230,7 @@ function draw(time, frame) {
   // time *= 0.001; //convert time to seconds
   delta = clock.getDelta();
   plasmaBalls.forEach(b => {
-    b.translateX(-speed * delta);
+    b.translateZ(-speed * delta);
   });
 
   //Resize Display Size and update Projection Matrix
