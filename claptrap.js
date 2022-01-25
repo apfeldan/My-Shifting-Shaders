@@ -149,10 +149,7 @@ function animate() {
 function draw(time, frame) {
   time *= 0.001; //convert time to seconds
 
-  delta = clock.getDelta();
-  plasmaBalls.forEach(b => {
-    b.translateX(-speed * delta);
-  });
+
 
   //Resize Display Size and update Projection Matrix
   if (resizeDisplay) {
@@ -217,6 +214,11 @@ function draw(time, frame) {
     }
   } //end if frame
 
+  delta = clock.getDelta();
+  plasmaBalls.forEach(b => {
+    b.translateX(-speed * delta);
+  });
+  
   //Render scene
   renderer.render(scene, camera);
 } //end function draw
