@@ -226,12 +226,12 @@ function animate() {
 } //end function animate()
 
 // DRAW
-// function draw(time, frame) {
-//   // time *= 0.001; //convert time to seconds
-//   delta = clock.getDelta();
-//   plasmaBalls.forEach(b => {
-//     b.translateZ(-speed * delta);
-//   });
+function draw(time, frame) {
+  // time *= 0.001; //convert time to seconds
+  delta = clock.getDelta();
+  plasmaBalls.forEach(b => {
+    b.translateX(-speed * delta);
+  });
 
   //Resize Display Size and update Projection Matrix
   if (resizeDisplay) {
