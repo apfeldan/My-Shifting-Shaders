@@ -97,7 +97,7 @@ function init() {
       // Add coordinate systems and plane normal
       const axesHelperScene = new THREE.AxesHelper(5);
       gClaptrapModel.add(axesHelperScene);
-      gClaptrapModel.add(positionalSound); //Sound wird hinzugefügt
+      // gClaptrapModel.add(positionalSound); //Sound wird hinzugefügt
 
       // Load Claptrap Tire
       gltfLoader.load(
