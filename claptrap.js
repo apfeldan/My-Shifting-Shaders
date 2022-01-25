@@ -210,7 +210,7 @@ function onSelect() {
     plasmaBall.lookAt(gClaptrapModel.position);
     plasmaBalls.push(plasmaBall.id);
     scene.add(plasmaBall);
-    scene.add(gClaptrapModel);
+    // scene.add(gClaptrapModel);
   }
 } //end function onSelectz
 
