@@ -2,8 +2,9 @@ import * as THREE from "./build/three.module.js";
 import { GLTFLoader } from "./GLTFLoader.js";
 import { ARButton } from "./ARButton.js";
 
-let gltfScene, landscape, renderer, light, camera, scene;
+let gltfScene, renderer, light, camera, scene;
 let claptraps = [];
+let plasmaBalls = [];
 let container;
 let findTarget;
 let hitTestSource = null;
@@ -127,8 +128,19 @@ function onSelect() {
   if (findTarget.visible) {
     let newClaptrapScene = gltfScene.clone();
     claptraps.push(newClaptrapScene);
-    newClaptrapScene.position.setFromMatrixPosition(findTarget.matrix);
+    newClaptrapScene.position.set(FromMatrixPosition(findTarget.matrix));
     scene.add(claptraps[claptraps.length - 1]);
+
+    let plasmaBall = new THREE.Mesh(
+      new THREE.SphereGeometry(0.5, 8, 4),
+      new THREE.MeshBasicMaterial({
+        color: "aqua",
+      })
+    );
+    plasmaBall.position.set(0, 0, 0);
+    plasmaBall.lookAt(newClaptrapScene.position);
+    plasmaBalls.push(plasmaBall);
+    scene.add(plasmaBalls[plasmaBalls.length - 1]);
   }
 } //end function onSelect()
 
@@ -139,6 +151,13 @@ function animate() {
 // DRAW
 function draw(time, frame) {
   time *= 0.001; //convert time to seconds
+
+  if (plasmaBalls.length > 0) {
+    delta = clock.getDelta();
+    plasmaBalls.forEach((b) => {
+      b.translateX(-speed * delta);
+    });
+  }
 
   //Resize Display Size and update Projection Matrix
   if (resizeDisplay) {
