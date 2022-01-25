@@ -209,7 +209,7 @@ function onSelect() {
     plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
     plasmaBall.lookAt(gClaptrapModel.position);
     plasmaBalls.push(plasmaBall.id);
-    scene.add(plasmaBall);
+    scene.add(plasmaBalls[plasmaBalls.length-1]);
     // scene.add(gClaptrapModel);
   }
 } //end function onSelectz
