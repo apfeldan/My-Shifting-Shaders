@@ -9,6 +9,8 @@ let findTarget;
 let hitTestSource = null;
 let hitTestSourceRequested = false;
 let controller;
+var speed = 10;
+var plasmaBalls = [];
 
 init();
 animate();
@@ -129,6 +131,13 @@ function onSelect() {
     claptraps.push(newClaptrapScene);
     newClaptrapScene.position.setFromMatrixPosition(findTarget.matrix);
     scene.add(claptraps[claptraps.length - 1]);
+
+    plasmaBall.position.setFromMatrixPosition(findTarget.matrix);
+    plasmaBall.lookAt(gClaptrapModel.position);
+    plasmaBalls.push(plasmaBall.id);
+    scene.add(plasmaBall);
+    scene.add(gClaptrapModel);
+  
   }
 } //end function onSelect()
 
@@ -139,6 +148,11 @@ function animate() {
 // DRAW
 function draw(time, frame) {
   time *= 0.001; //convert time to seconds
+
+  delta = clock.getDelta();
+  plasmaBalls.forEach(b => {
+    b.translateX(-speed * delta);
+  });
 
   //Resize Display Size and update Projection Matrix
   if (resizeDisplay) {
